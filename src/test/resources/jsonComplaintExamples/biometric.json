@@ -1,0 +1,22 @@
+{
+  "creationDate": "nisi amet aliquip ad",
+  "complaint": {
+    "complaintType": "BIOMETRIC_RESIDENCE_PERMIT",
+    "reference": {
+      "referenceType": "IHS_REF",
+      "reference": "cillum Ut"
+    },
+    "reporterDetails": {
+      "applicantType": "APPLICANT",
+      "applicantName": "sit culpa",
+      "applicantNationality": "Denmark",
+      "applicantDob": "consectetur mollit",
+      "applicantEmail": "Ut",
+      "applicantPhone": "magna dolore et occaecat veniam"
+    },
+    "complaintDetails": {
+      "reason": "POOR_STAFF_BEHAVIOUR",
+      "complaintText": "dolore cupidatat in officia enim"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "complaint": {
+    "complaintType": "MAKING_APPOINTMENT",
+    "reference": {
+      "referenceType": "IHS_REF",
+      "reference": "sint"
+    },
+    "reporterDetails": {
+      "applicantType": "APPLICANT",
+      "applicantName": "in dolor labore officia commodo",
+      "applicantNationality": "Marshall Islands",
+      "applicantDob": "et cupidatat exercitation culpa pariatur",
+      "applicantEmail": "esse culpa anim nostrud",
+      "applicantPhone": "ut do"
+    },
+    "complaintDetails": {
+      "reason": "POOR_STAFF_BEHAVIOUR",
+      "complaintText": "eiusmod aliqua ut dolor aliquip"
+    }
+  }
+}
