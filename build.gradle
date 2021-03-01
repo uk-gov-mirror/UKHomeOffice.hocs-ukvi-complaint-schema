@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'uk.gov.digital.ho.hocs'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile 'com.networknt:json-schema-validator:1.0.49'
+}
