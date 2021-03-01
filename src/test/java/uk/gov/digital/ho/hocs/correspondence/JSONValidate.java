@@ -33,7 +33,7 @@ public class JSONValidate {
     }
 
     @Test
-    public void validMakingAppointment() throws Exception {
+    public void makingAppointment() throws Exception {
         try (
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/makingAppointment.json")

@@ -1,5 +1,6 @@
 {
-  "Complaint": {
+  "creationDate": "2020-10-03",
+  "complaint": {
     "complaintType": "POOR_INFORMATION",
     "reference": {
       "referenceType": "UAN_REF",
@@ -10,7 +11,7 @@
       "applicantName": "occaecat Lorem",
       "applicantNationality": "Czech Republic",
       "applicantDob": "ipsum exercitation adipisicing minim Duis",
-      "applicantEmail": "in dolore est Ut",
+      "applicantEmail": "sss@uevptde.com",
       "applicantPhone": "consequat anim cillum laboris"
     },
     "complaintDetails": {
