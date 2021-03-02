@@ -1,10 +1,10 @@
 {
-  "creationDate": "2020-10-03",
+  "creationDate": "1988-05-26",
   "complaint": {
     "complaintType": "BIOMETRIC_RESIDENCE_PERMIT",
     "reference": {
-      "referenceType": "IHS_REF",
-      "reference": "cillum Ut"
+      "referenceType": "GWF_REF",
+      "reference": "occaecat"
     },
     "reporterDetails": {
       "applicantType": "APPLICANT",
@@ -15,8 +15,8 @@
       "applicantPhone": "01772 700806"
     },
     "complaintDetails": {
-      "reason": "POOR_STAFF_BEHAVIOUR",
-      "complaintText": "dolore cupidatat in officia enim"
+      "complaintText": "qui",
+      "problemExperienced": "CARD_INCORRECT"
     }
   }
 }

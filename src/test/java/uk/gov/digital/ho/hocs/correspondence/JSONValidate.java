@@ -72,6 +72,56 @@ public class JSONValidate {
         }
     }
 
+    @Test
+    public void submittingApplication() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/submittingApplication.json")
+        ) {
+            testSchema(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void somethingElseComplaint() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/somethingElse.json")
+        ) {
+            testSchema(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void delaysComplaint() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/delays.json")
+        ) {
+            testSchema(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void decisionComplaint() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/decision.json")
+        ) {
+            testSchema(schemaStream, jsonStream);
+        }
+    }
+
+    @Test
+    public void refundComplaint() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/refund.json")
+        ) {
+            testSchema(schemaStream, jsonStream);
+        }
+    }
+
     private void testSchema(InputStream schemaStream, InputStream jsonStream) throws IOException {
         JsonNode json = objectMapper.readTree(jsonStream);
         JsonSchema schema = schemaFactory.getSchema(schemaStream);

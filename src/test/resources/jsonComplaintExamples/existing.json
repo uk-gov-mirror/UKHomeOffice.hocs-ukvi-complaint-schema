@@ -3,9 +3,9 @@
   "complaint": {
     "complaintType": "EXISTING",
     "complaintDetails": {
-      "complaintReferenceNumber": "dolore id adipisicing",
-      "complaintText": "labore",
-      "reason": "MAKING_APPOINTMENT"
+      "complaintReferenceNumber": "et",
+      "complaintText": "aliquip deserunt eu aute ad",
+      "previousComplaintType": "MAKING_APPOINTMENT"
     },
     "reporterDetails": {
       "applicantType": "APPLICANT",
