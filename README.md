@@ -1,2 +1,3 @@
-# hocs-case-creation
-Home Office service for the creating of cases
+# hocs-ukvi-complaint-schema
+The JSON schema for the UKVI Complaints Management complaint schema.
+Contains the schems, examples and validation tests.
