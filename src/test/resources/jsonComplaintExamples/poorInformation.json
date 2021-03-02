@@ -10,9 +10,9 @@
       "applicantType": "APPLICANT",
       "applicantName": "occaecat Lorem",
       "applicantNationality": "Czech Republic",
-      "applicantDob": "ipsum exercitation adipisicing minim Duis",
+      "applicantDob": "2020-10-03",
       "applicantEmail": "sss@uevptde.com",
-      "applicantPhone": "consequat anim cillum laboris"
+      "applicantPhone": "TODO?"
     },
     "complaintDetails": {
       "reason": "BIOMETRIC_RESIDENCE_PERMIT",

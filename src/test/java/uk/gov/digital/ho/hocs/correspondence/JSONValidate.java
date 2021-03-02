@@ -20,7 +20,7 @@ import static org.junit.Assert.fail;
 public class JSONValidate {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final JsonSchemaFactory schemaFactory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7);
+    private final JsonSchemaFactory schemaFactory = JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V201909);
 
     @Test
     public void existing() throws Exception {

@@ -1,5 +1,7 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "title": "UKVI Complaint",
+  "description": "The JSON sent between the HO UKVI complaints service and DECS",
   "definitions": {
     "VacCentre": {
       "type": "object",
@@ -62,7 +64,8 @@
           ]
         },
         "agentEmail": {
-          "type": "string", "format": "email"
+          "type": "string",
+          "format": "email"
         },
         "agentPhone": {
           "type": "string"
@@ -84,7 +87,8 @@
           "$ref": "#/definitions/CountryList"
         },
         "applicantDob": {
-          "type": "string"
+          "type": "string",
+          "format": "date"
         }
       }
     },
@@ -111,10 +115,12 @@
           "$ref": "#/definitions/CountryList"
         },
         "applicantDob": {
-          "type": "string"
+          "type": "string",
+          "format": "date"
         },
         "applicantEmail": {
-          "type": "string", "format": "email"
+          "type": "string",
+          "format": "email"
         },
         "applicantPhone": {
           "type": "string"
