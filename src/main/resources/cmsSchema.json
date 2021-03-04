@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft/2019-09/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "UKVI Complaint",
   "description": "The JSON sent between the HO UKVI complaints service and DECS",
   "definitions": {
