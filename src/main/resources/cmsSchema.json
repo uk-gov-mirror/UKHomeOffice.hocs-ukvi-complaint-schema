@@ -284,6 +284,48 @@
         "SOMETHING_ELSE"
       ]
     },
+    "PreviousComplaintType": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/HasRefPreviousComplaintType"
+        },
+        {
+          "$ref": "#/definitions/NoRefPreviousComplaintType"
+        }
+      ]
+    },
+    "NoRefPreviousComplaintType": {
+      "type": "object",
+      "required": [
+        "previousComplaintType",
+        "complaintText"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "previousComplaintType": {
+          "$ref": "#/definitions/ComplaintType"
+        },
+        "complaintText": {
+          "$ref": "#/definitions/ComplaintDetailsText"
+        }
+      }
+    },
+    "HasRefPreviousComplaintType": {
+      "type": "object",
+      "required": [
+        "complaintReferenceNumber",
+        "complaintText"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "complaintReferenceNumber": {
+          "type": "string"
+        },
+        "complaintText": {
+          "$ref": "#/definitions/ComplaintDetailsText"
+        }
+      }
+    },
     "FaceToFaceExperience": {
       "type": "object",
       "required": [
@@ -755,48 +797,6 @@
         }
       }
     },
-    "NoRefPreviousComplaint": {
-      "type": "object",
-      "required": [
-        "previousComplaintType",
-        "complaintText"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "previousComplaintType": {
-          "$ref": "#/definitions/ComplaintType"
-        },
-        "complaintText": {
-          "$ref": "#/definitions/ComplaintDetailsText"
-        }
-      }
-    },
-    "HasRefPreviousComplaint": {
-      "type": "object",
-      "required": [
-        "complaintReferenceNumber",
-        "complaintText"
-      ],
-      "additionalProperties": false,
-      "properties": {
-        "complaintReferenceNumber": {
-          "type": "string"
-        },
-        "complaintText": {
-          "$ref": "#/definitions/ComplaintDetailsText"
-        }
-      }
-    },
-    "PreviousComplaint": {
-      "oneOf": [
-        {
-          "$ref": "#/definitions/HasRefPreviousComplaint"
-        },
-        {
-          "$ref": "#/definitions/NoRefPreviousComplaint"
-        }
-      ]
-    },
     "ExistingComplaint": {
       "type": "object",
       "required": [
@@ -822,7 +822,7 @@
           "additionalProperties": false,
           "properties": {
             "previousComplaint": {
-              "$ref": "#/definitions/PreviousComplaint"
+              "$ref": "#/definitions/PreviousComplaintType"
             }
           }
         }
