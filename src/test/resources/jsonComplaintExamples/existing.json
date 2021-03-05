@@ -2,11 +2,6 @@
   "creationDate": "1948-08-23",
   "complaint": {
     "complaintType": "EXISTING",
-    "complaintDetails": {
-      "complaintReferenceNumber": "et",
-      "complaintText": "aliquip deserunt eu aute ad",
-      "previousComplaintType": "MAKING_APPOINTMENT"
-    },
     "reporterDetails": {
       "applicantType": "APPLICANT",
       "applicantName": "deserunt",
@@ -14,6 +9,11 @@
       "applicantDob": "2020-10-03",
       "applicantEmail": "sss@uevptde.com",
       "applicantPhone": "01772 700806"
+    },
+    "complaintDetails": {
+      "complaintReferenceNumber": "et",
+      "complaintText": "aliquip deserunt eu aute ad",
+      "previousComplaintType": "MAKING_APPOINTMENT"
     }
   }
 }

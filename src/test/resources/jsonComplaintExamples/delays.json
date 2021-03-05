@@ -15,10 +15,10 @@
       "applicantPhone": "aliqua ea"
     },
     "complaintDetails": {
-      "complaintText": "pariatur Excepteur laborum dolore"
-    },
-    "delayedWaitingFor": "APPLICATION_DELAY",
-    "applicationSubmittedWhen": "Lorem",
-    "applicationLocation": "INSIDE_UK"
+      "complaintText": "pariatur Excepteur laborum dolore",
+      "delayedWaitingFor": "APPLICATION_DELAY",
+      "applicationSubmittedWhen": "Lorem",
+      "applicationLocation": "INSIDE_UK"
+    }
   }
 }

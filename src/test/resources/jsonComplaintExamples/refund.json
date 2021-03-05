@@ -20,10 +20,10 @@
       }
     },
     "complaintDetails": {
-      "complaintText": "in ex ut ipsum dolor"
-    },
-    "refundRequested": "YES",
-    "applicationLocation": "INSIDE_UK",
-    "refundType": "STANDARD"
+      "complaintText": "in ex ut ipsum dolor",
+      "refundRequested": "YES",
+      "applicationLocation": "INSIDE_UK",
+      "refundType": "STANDARD"
+    }
   }
 }
