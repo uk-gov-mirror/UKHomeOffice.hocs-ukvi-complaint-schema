@@ -15,9 +15,9 @@
       "applicantPhone": "aliqua ea"
     },
     "complaintDetails": {
-      "complaintText": "Ut velit ut magna aliquip"
-    },
-    "decisionOutcome": "POSITIVE",
-    "applicationLocation": "INSIDE_UK"
+      "complaintText": "Ut velit ut magna aliquip",
+      "decisionOutcome": "POSITIVE",
+      "applicationLocation": "INSIDE_UK"
+    }
   }
 }

@@ -16,8 +16,8 @@
     },
     "complaintDetails": {
       "complaintText": "ut qui eiusmod",
-      "problemExperienced": "SOMETHING_ELSE"
-    },
-    "applicationLocation": "OUTSIDE_UK"
+      "problemExperienced": "SOMETHING_ELSE",
+      "applicationLocation": "OUTSIDE_UK"
+    }
   }
 }
