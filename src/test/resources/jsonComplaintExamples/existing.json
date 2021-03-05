@@ -11,9 +11,10 @@
       "applicantPhone": "01772 700806"
     },
     "complaintDetails": {
-      "complaintReferenceNumber": "et",
-      "complaintText": "aliquip deserunt eu aute ad",
-      "previousComplaintType": "MAKING_APPOINTMENT"
+      "previousComplaint": {
+        "complaintReferenceNumber": "id",
+        "complaintText": "occaecat proident labore dolor sunt"
+      }
     }
   }
 }
