@@ -758,12 +758,16 @@
     "NoRefPreviousComplaint": {
       "type": "object",
       "required": [
-        "previousComplaintType"
+        "previousComplaintType",
+        "complaintText"
       ],
       "additionalProperties": false,
       "properties": {
         "previousComplaintType": {
           "$ref": "#/definitions/ComplaintType"
+        },
+        "complaintText": {
+          "$ref": "#/definitions/ComplaintDetailsText"
         }
       }
     },

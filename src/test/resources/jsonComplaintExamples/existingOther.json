@@ -4,7 +4,8 @@
     "complaintType": "EXISTING",
     "complaintDetails": {
       "previousComplaint": {
-        "previousComplaintType": "IMMIGRATION_DECISION"
+        "previousComplaintType": "IMMIGRATION_DECISION",
+        "complaintText": "occaecat proident labore dolor sunt"
       }
     }
   }
