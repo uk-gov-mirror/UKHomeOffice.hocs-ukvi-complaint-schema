@@ -2,19 +2,17 @@ package uk.gov.digital.ho.hocs.correspondence;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.networknt.schema.JsonSchema;
-import com.networknt.schema.JsonSchemaFactory;
-import com.networknt.schema.SpecVersion;
-import com.networknt.schema.ValidationMessage;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.networknt.schema.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @Slf4j
 public class JSONValidate {
@@ -28,7 +26,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/existing.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -38,7 +36,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/existingOther.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -48,7 +46,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/makingAppointment.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -58,7 +56,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/poorInformation.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -68,7 +66,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/biometric.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -78,7 +76,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/staffBehaviour.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -88,7 +86,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/submittingApplication.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -98,7 +96,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/somethingElse.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -108,7 +106,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/delays.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -118,7 +116,7 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/decision.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
@@ -128,11 +126,32 @@ public class JSONValidate {
                 InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
                 InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/refund.json")
         ) {
-            testSchema(schemaStream, jsonStream);
+            testSchemaValid(schemaStream, jsonStream);
         }
     }
 
-    private void testSchema(InputStream schemaStream, InputStream jsonStream) throws IOException {
+    @Test
+    public void exceedStringMaxLengths() throws Exception {
+        try (
+                InputStream schemaStream = inputStreamFromClasspath("cmsSchema.json");
+                InputStream jsonStream = inputStreamFromClasspath("jsonComplaintExamples/Invalid/exceedStringMaxLengths.json")
+        ) {
+                Set<ValidationMessage> validationMessages = testSchemaInvalid(schemaStream, jsonStream);
+
+                Set<String> expectedMessages = new HashSet<>();
+                expectedMessages.add("$.complaint.reporterDetails.applicantName: may only be 100 characters long");
+                expectedMessages.add("$.complaint.reporterDetails.applicantNationality: may only be 100 characters long");
+                expectedMessages.add("$.complaint.reporterDetails.applicantEmail: may only be 256 characters long");
+                expectedMessages.add("$.complaint.reporterDetails.applicantPhone: may only be 50 characters long");
+                expectedMessages.add("$.complaint.complaintDetails.applicationSubmittedWhen: may only be 50 characters long");
+                expectedMessages.add("$.complaint.complaintDetails.complaintText: may only be 99999 characters long");
+                expectedMessages.add("$.complaint.reference.reference: may only be 100 characters long");
+
+                assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
+        }
+    }
+
+    private void testSchemaValid(InputStream schemaStream, InputStream jsonStream) throws IOException {
         JsonNode json = objectMapper.readTree(jsonStream);
         JsonSchema schema = schemaFactory.getSchema(schemaStream);
         Set<ValidationMessage> validationResult = schema.validate(json);
@@ -145,6 +164,23 @@ public class JSONValidate {
             fail();
         }
     }
+
+    private Set<ValidationMessage> testSchemaInvalid(InputStream schemaStream, InputStream jsonStream) throws IOException {
+        JsonNode json = objectMapper.readTree(jsonStream);
+        JsonSchema schema = schemaFactory.getSchema(schemaStream);
+        return schema.validate(json);
+
+    }
+
+    private boolean checkForValidationMessage (Set<ValidationMessage> validationMessages, Set<String> expectedMessages){
+        for (String expectedMessage : expectedMessages){
+            if (validationMessages.stream().noneMatch(o -> o.getMessage().equals(expectedMessage))){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     private static InputStream inputStreamFromClasspath(String path) {
         return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
