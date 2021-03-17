@@ -11,9 +11,9 @@
       "applicantPhone": "01772 700806"
     },
     "complaintDetails": {
+      "complaintText": "occaecat proident labore dolor sunt",
       "previousComplaint": {
-        "complaintReferenceNumber": "id",
-        "complaintText": "occaecat proident labore dolor sunt"
+        "complaintReferenceNumber": "id"
       }
     }
   }
