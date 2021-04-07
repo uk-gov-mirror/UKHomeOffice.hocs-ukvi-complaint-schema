@@ -70,7 +70,7 @@
     },
     "ComplaintDetailsText": {
       "type": "string",
-      "maxLength": 99999
+      "maxLength": 50000
     },
     "AgentDetails": {
       "type": "object",
