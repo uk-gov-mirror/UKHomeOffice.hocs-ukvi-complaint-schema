@@ -143,7 +143,7 @@ public class JSONValidate {
                 expectedMessages.add("$.complaint.reporterDetails.applicantEmail: may only be 256 characters long");
                 expectedMessages.add("$.complaint.reporterDetails.applicantPhone: may only be 50 characters long");
                 expectedMessages.add("$.complaint.complaintDetails.applicationSubmittedWhen: may only be 50 characters long");
-                expectedMessages.add("$.complaint.complaintDetails.complaintText: may only be 99999 characters long");
+                expectedMessages.add("$.complaint.complaintDetails.complaintText: may only be 50000 characters long");
                 expectedMessages.add("$.complaint.reference.reference: may only be 100 characters long");
 
                 assertTrue(checkForValidationMessage(validationMessages,expectedMessages));
