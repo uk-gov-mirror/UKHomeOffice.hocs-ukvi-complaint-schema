@@ -266,7 +266,7 @@ public class JSONValidate {
         JsonSchema schema = schemaFactory.getSchema(schemaStream);
         Set<ValidationMessage> validationResult = schema.validate(json);
         if (validationResult.isEmpty()) {
-            assertTrue(jsonBytes.length < 250000);
+            assertTrue(jsonBytes.length < 256000);
         } else {
             for (ValidationMessage validationMessage : validationResult) {
                 log.info(validationMessage.getMessage());
