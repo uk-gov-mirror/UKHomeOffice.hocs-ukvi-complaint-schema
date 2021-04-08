@@ -40,7 +40,6 @@ public class SchemaValidate {
             }
 
         }
-
         assertTrue(true);
     }
 
