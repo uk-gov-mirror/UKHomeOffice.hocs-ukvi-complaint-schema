@@ -1,10 +1,15 @@
 plugins {
     id 'java'
     id "io.freefair.lombok" version "5.3.0"
+    id 'java-library'
+    id 'maven-publish'
 }
 
 group 'uk.gov.digital.ho.hocs'
-version '1.0-SNAPSHOT'
+
+if (project.hasProperty('artifactVersion')) {
+    version artifactVersion
+}
 
 repositories {
     mavenCentral()
@@ -19,3 +24,25 @@ dependencies {
     implementation 'com.jayway.jsonpath:json-path:2.5.0'
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 }
+
+publishing {
+    publications {
+        hocsUkviComplaintSchema(MavenPublication) {
+            from components.java
+            artifactId = 'hocs-ukvi-complaint-schema'
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'hocs-ukvi-complaint-schema'
+            description = 'The JSON schema for the UKVI Complaints Management complaint schema'
+            url = 'https://artifactory.digital.homeoffice.gov.uk/artifactory/DECS/'
+            credentials {
+                username = System.getenv('ARTIFACTORY_USER')
+                password = System.getenv('ARTIFACTORY_TOKEN')
+            }
+        }
+    }
+}
+
