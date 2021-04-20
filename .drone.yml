@@ -20,17 +20,16 @@ steps:
 trigger:
   event:
     - push
+    - tag
 
 ---
 kind: pipeline
 type: kubernetes
 name: publish
+depends_on:
+    - build
 
 steps:
-  - name: test project
-    image: quay.io/ukhomeofficedigital/openjdk11:v11.0.5_10
-    commands:
-      - ./gradlew check --no-daemon
 
   - name: publish
     pull: if-not-exists
